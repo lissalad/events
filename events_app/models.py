@@ -1,6 +1,11 @@
 """Create database models to represent tables."""
 from events_app import db
 from sqlalchemy.orm import backref
+from wtforms.fields import DateField
+from datetime import date, datetime
+
+from wtforms.widgets import TextArea # get TextArea from widgets!
+
 # --------------------------------------------------------- #
 
 # TODO: Create a model called `Guest` with the following fields:
@@ -32,8 +37,8 @@ class Guest(db.Model):
 class Event(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(80), nullable=False)
-  description = db.Column(db.String(80), nullable=False)
-  date_and_time = db.DateTime() # HELP
+  description = db.Column(db.String(), nullable=False)
+  date = DateField("Date", format="%Y-%m-%d")
 # --------------------------------------------------------- #
 
 # TODO: Create a table `guest_event_table` with the following columns:
