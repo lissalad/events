@@ -60,8 +60,8 @@ def event_detail(event_id):
     """Show a single event."""
 
     # TODO: Get the event with the given id and send to the template
-    event = Event.query.filter_by(id=event_id).one()
-    
+    event = Event.query.filter_by(id=event_id)
+    print(event)
     return render_template('event_detail.html', event=event)
 
 
@@ -105,6 +105,6 @@ def rsvp(event_id):
 @main.route('/guest/<guest_id>')
 def guest_detail(guest_id):
     # TODO: Get the guest with the given id and send to the template
-    guest = Guest.query.filter_by(id=guest_id).one()
+    guest = Guest.query.filter_by(id=guest_id)
     
     return render_template('guest_detail.html', guest=guest)

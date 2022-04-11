@@ -39,6 +39,7 @@ class Event(db.Model):
   title = db.Column(db.String(80), nullable=False)
   description = db.Column(db.String(), nullable=False)
   date = DateField("Date", format="%Y-%m-%d")
+  guests = db.relationship('Guest', secondary='guest_events')
 # --------------------------------------------------------- #
 
 # TODO: Create a table `guest_event_table` with the following columns:
